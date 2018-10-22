@@ -12,10 +12,12 @@ import org.springframework.stereotype.Component;
 public class MyApplicationRunner implements ApplicationRunner {
 
   @Autowired
-private loginLogBackUps logBackUps;
+  private LogBackUps logBackUps;
+
   @Override
-  public void run(ApplicationArguments var1) throws Exception{
+  public void run(ApplicationArguments var1) throws Exception {
     System.out.println("MyApplicationRunner1!");
-    logBackUps.backUps();
+    logBackUps.loginLogBackUps();
+    logBackUps.userActionLogBackUps();
   }
 }

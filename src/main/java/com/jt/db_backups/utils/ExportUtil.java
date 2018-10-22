@@ -10,33 +10,39 @@ import java.util.Map;
  * Created by  2018/10/18.
  */
 public class ExportUtil {
-  /** CSV文件列分隔符 */
+
+  /**
+   * CSV文件列分隔符
+   */
   private static final String CSV_COLUMN_SEPARATOR = ",";
 
-  /** CSV文件列分隔符 */
+  /**
+   * CSV文件列分隔符
+   */
   private static final String CSV_RN = "\r\n";
 
   /**
    *
-   * @param dataList 集合数据
-   * @param colNames 表头部数据
-   * @param mapKey 查找的对应数据
+   * @param dataList
+   * @param colNames
+   * @param mapKey
+   * @param templetFilePath
+   * @param exportFilePath
+   * @return
    */
-  public static boolean doExport(List<Map<String, Object>> dataList, String colNames, String mapKey) {
+  public static boolean doExport(List<Map<String, Object>> dataList, String colNames, String mapKey,
+      String templetFilePath, String exportFilePath) {
     try {
 
-      File exportFile=new File("D:\\tests.csv");
-      File templetFile= new File("D:\\tests.csv");
+      File exportFile = new File(templetFilePath);
+      File templetFile = new File(exportFilePath);
 
-
-      if(!exportFile.exists()){
+      if (!exportFile.exists()) {
         exportFile.createNewFile();
       }
 
       FileOutputStream out = new FileOutputStream(exportFile);
       FileInputStream fis = new FileInputStream(templetFile);
-
-
       StringBuffer buf = new StringBuffer();
 
       String[] colNamesArr = null;
@@ -69,8 +75,6 @@ public class ExportUtil {
     }
     return false;
   }
-
-
 
 
 }
